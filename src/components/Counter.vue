@@ -20,10 +20,10 @@
                 <div class="card shadow-large">
                     <div class="card-body text-center">
                         <p class="h3 display-3 text-center">{{counterState.count}}</p>
-                        <button @click="increment" class="btn btn-success m-1"> Increment</button>
-                        <button @click="decrement" class="btn btn-warning m-1"> Decrement</button>
-                        <button @click="incrementBy" class="btn btn-primary m-1"> Increment By</button>
-                        <button @click="reset" class="btn btn-danger m-1"> Reset</button>
+                        <button @click="increment()" class="btn btn-success m-1"> Increment</button>
+                        <button @click="decrement()" class="btn btn-warning m-1"> Decrement</button>
+                        <button @click="incrementBy(5)" class="btn btn-primary m-1"> Increment By</button>
+                        <button @click="reset()" class="btn btn-danger m-1"> Reset</button>
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@ export default {
         decrement(){
             this.$store.dispatch('decrementCounter')
         },
-        incrementBy(){
-            this.$store.dispatch('incrementCounterBy')
+        incrementBy(value){
+            this.$store.dispatch('incrementCounterBy',{value:value})
         },
         reset(){
             this.$store.dispatch('resetCounter')

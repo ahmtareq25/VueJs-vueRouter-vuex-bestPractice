@@ -18,15 +18,13 @@ export default{
             return state.counter.count -= 1;
         },
 
-        INCREMENT_BY_COUNTER:function(state){
-            return state.counter.count += state.counter.count;
+        INCREMENT_BY_COUNTER:function(state, payload){
+            return state.counter.count += payload.value;
         },
 
         RESET_COUNTER:function(state){
             return state.counter.count = 0;
         }
-
-    
 
     },
     actions:{
@@ -37,8 +35,8 @@ export default{
         decrementCounter({commit}){
             return commit("DECREMENT_COUNTER");
         },
-        incrementCounterBy({commit}){
-            return commit("INCREMENT_BY_COUNTER");
+        incrementCounterBy({commit}, payload){
+            return commit("INCREMENT_BY_COUNTER", payload);
         },
         resetCounter({commit}){
             return commit("RESET_COUNTER");
